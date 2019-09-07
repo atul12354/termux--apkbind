@@ -103,15 +103,15 @@ if [ -d "$HOME/metasploit-framework" ]; then
 		(axel -kaq "https://archive.org/download/5.0.23.tar/framework-res.apk")
 		cd -
 	fi
-	cp u-setup/signapk $PREFIX/bin/
-	cp u-setup/signapk.jar $PREFIX/bin/
-	cp u-setup/publickey.x509.pem $PREFIX/lib/
-	cp u-setup/publickey.pk8 $PREFIX/lib/
-	cp bind-apk $PREFIX/bin/
-	cp apktool/apktool.jar $PREFIX/bin/
-	cp apktool/.apktool/aapt apktool/.apktool/zipalign apktool/.apktool/apktool $PREFIX/bin/
-	chmod 700 $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign $PREFIX/bin/bind-apk $PREFIX/bin/signapk
-	termux-fix-shebang $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign $PREFIX/bin/bind-apk $PREFIX/bin/signapk
+	cp u-setup/signapk $PREFIX/bin/;
+	cp u-setup/signapk.jar $PREFIX/bin/;
+	cp u-setup/publickey.x509.pem $PREFIX/lib/;
+	cp u-setup/publickey.pk8 $PREFIX/lib/;
+	cp bind-apk $PREFIX/bin/;
+	cp apktool/apktool.jar $PREFIX/bin/;
+	cp apktool/.apktool/aapt apktool/.apktool/zipalign apktool/.apktool/apktool $PREFIX/bin/;
+	chmod 700 $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign $PREFIX/bin/bind-apk $PREFIX/bin/signapk;
+	termux-fix-shebang $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign $PREFIX/bin/bind-apk $PREFIX/bin/signapk;
 	rm ~/metasploit-framework/lib/msf/core/payload/apk.rb
 	cp apk.rb ~/metasploit-framework/lib/msf/core/payload/
 	(patch ~/metasploit-framework/lib/msf/core/payload/apk.rb < apktool/.apktool/apk.rb.patch) &> /dev/null
@@ -120,11 +120,17 @@ if [ -d "$HOME/metasploit-framework" ]; then
 	echo
 elif [ -d "$PREFIX/opt/metasploit-framework" ]; then
 	echo -e "\e[1;34m[*] \e[32mYou are using Unstable-repo...metasploit-framework..\e[0m";
-	cp apktool/apktool.jar $PREFIX/bin/
-        cp apktool/.apktool/aapt apktool/.apktool/zipalign apktool/.apktool/apktool $PREFIX/bin/
-        chmod 700 $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign
-	rm $PREFIX/opt/metasploit-framework/lib/msf/core/payload/apk.rb
-	cp apk.rb $PREFIX/opt/metasploit-framework/lib/msf/core/payload/apk.rb
+	cp u-setup/signapk $PREFIX/bin/;
+        cp u-setup/signapk.jar $PREFIX/bin/;
+        cp u-setup/publickey.x509.pem $PREFIX/lib/;
+        cp u-setup/publickey.pk8 $PREFIX/lib/;
+        cp bind-apk $PREFIX/bin/;
+        cp apktool/apktool.jar $PREFIX/bin/;
+        cp apktool/.apktool/aapt apktool/.apktool/zipalign apktool/.apktool/apktool $PREFIX/bin/;
+        chmod 700 $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign $PREFIX/bin/bind-apk $PREFIX/bin/signapk;
+        termux-fix-shebang $PREFIX/bin/apktool $PREFIX/bin/aapt $PREFIX/bin/zipalign $PREFIX/bin/bind-apk $PREFIX/bin/signapk;;
+	rm $PREFIX/opt/metasploit-framework/lib/msf/core/payload/apk.rb;
+	cp apk.rb $PREFIX/opt/metasploit-framework/lib/msf/core/payload/apk.rb;
         (patch $PREFIX/opt/metasploit-framework/lib/msf/core/payload/apk.rb < apktool/.apktool/apk.rb.patch) &> /dev/null
         cp apktool/.apktool/framework-res.apk $PREFIX/share/
 	echo -e "\e[1;34m[*] \e[32mApktool successfully installed..\e[0m";
