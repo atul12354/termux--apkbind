@@ -9,4 +9,14 @@ This apktool is working with Hax4us openjdk-8-jre without any issue...
 
 `bash setup`
 
-## finish..
+## after finish..
+
+open new session then
+
+type command
+
+`termux-chroot`
+
+then create payload or use apktool or signapk or java..
+
+## Enjoy now..
