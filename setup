@@ -117,6 +117,7 @@ if [ -d "$HOME/metasploit-framework" ]; then
 	(patch ~/metasploit-framework/lib/msf/core/payload/apk.rb < apktool/.apktool/apk.rb.patch) &> /dev/null
 	cp apktool/.apktool/framework-res.apk $PREFIX/share/
 	echo -e "\e[1;34m[*] \e[32mApktool successfully installed..\e[0m";
+	cd;cd ..;ln -s /storage/emulated/0/ sdcard;cd;
 	echo
 elif [ -d "$PREFIX/opt/metasploit-framework" ]; then
 	echo -e "\e[1;34m[*] \e[32mYou are using Unstable-repo...metasploit-framework..\e[0m";
@@ -134,6 +135,7 @@ elif [ -d "$PREFIX/opt/metasploit-framework" ]; then
         (patch $PREFIX/opt/metasploit-framework/lib/msf/core/payload/apk.rb < apktool/.apktool/apk.rb.patch) &> /dev/null
         cp apktool/.apktool/framework-res.apk $PREFIX/share/
 	echo -e "\e[1;34m[*] \e[32mApktool successfully installed..\e[0m";
+	cd;cd ..;ln -s /storage/emulated/0/ sdcard;cd;
 	echo ""
 else
 	echo -e "\e[1;34m[*] \e[32mYou have to install metasploit-framework first...\e[0m";
